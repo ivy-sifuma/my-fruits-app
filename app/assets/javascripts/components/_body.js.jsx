@@ -102,7 +102,7 @@ var fruits = props.fruits.map((fruit) => {
  
 
 class Fruit extends React.Component{
-constructor(props){
+  constructor(props){
     
     this.handleEdit = this.handleEdit.bind(this)
   }
@@ -154,17 +154,18 @@ this.handleUpdate = this.handleUpdate.bind(this);
     this.setState({
       fruits: newFruits
     })
-
+  }
     componentDidMount(){
         fetch('/api/v1/fruits.json')
           .then((response) => {return response.json()})
           .then((data) => {this.setState({ fruits: data }) });
       }
+
     render(){
         return(
           <div>
-            <NewFruit handleFormSubmit={this.handleFormSubmit} />
-            <AllFruits fruits={this.state.fruits} handleDelete={this.handleDelete} />
+            <NewItem handleSubmit = {this.handleSubmit} />
+            <AllItems items={this.state.items} handleDelete = {this.handleDelete} handleUpdate = {this.handleUpdate}/>
           </div>
         )
       }
