@@ -75,7 +75,7 @@ class Body extends React.Component {
   }
 
   componentDidMount(){
-    fetch('/api/v1/fruits.json')
+    fetch ()
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ fruits: data }) });
   }
