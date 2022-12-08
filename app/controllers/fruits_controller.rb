@@ -1,4 +1,5 @@
-class Api::V1::FruitsController < ApplicationController
+module api::V1
+class api::V1::FruitsController < ApplicationController
   def index
     render json: Fruit.all
   end
