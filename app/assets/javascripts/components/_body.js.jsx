@@ -22,6 +22,13 @@ class Body extends React.Component {
           })
       }
 
+      deleteFruit(id){
+        newFruits = this.state.fruits.filter((fruit) => fruit.id !== id)
+        this.setState({
+          fruits: newFruits
+        })
+      }
+
       handleFormSubmit(name, description){
         let body = JSON.stringify({fruit: {name: name, description:   description} })
         fetch('http://localhost:3000/api/v1/fruits', {
